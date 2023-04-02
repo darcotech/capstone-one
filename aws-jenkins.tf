@@ -33,9 +33,9 @@ resource "aws_key_pair" "deployer1" {
 }
 
 
-resource "aws_instance" "amzn-linux" {
-  ami                    = "ami-0c02fb55956c7d316"
-  instance_type          = "t3.micro"
+resource "aws_instance" "amzn-linux-jnk02" {
+  ami                    = "ami-04505e74c0741db8d"
+  instance_type          = "t2.micro"
   key_name               = aws_key_pair.deployer1.key_name
   vpc_security_group_ids = ["${aws_security_group.allow_SSH.id}"]
   tags = {
@@ -51,7 +51,7 @@ resource "aws_instance" "amzn-linux" {
 ####### Ubuntu VM #####
 
 
-resource "aws_instance" "ubuntu" {
+resource "aws_instance" "ubuntu-jnk01" {
   ami                    = "ami-04505e74c0741db8d"
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.deployer1.key_name
